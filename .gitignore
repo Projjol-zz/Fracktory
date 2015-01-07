@@ -28,6 +28,7 @@ scripts/darwin/build/*
 scripts/darwin/Cura.dmg.sparseimage
 scripts/win32/dist/*
 scripts/linux/debian/usr/*
+scripts/linux/debian_amd64/usr/*
 log.txt
 output.txt
 *.bak
