@@ -64,6 +64,7 @@ class SceneView(openglGui.glGuiPanel):
 		self.openFileButton      = openglGui.glButton(self, 4, _("Load"), (0,0), self.showLoadModel)
 		self.printButton         = openglGui.glButton(self, 6, _("Print"), (1,0), self.OnPrintButton)
 		self.printButton.setDisabled(False)
+		self.printButton2         = openglGui.glButton(self, 6, _("Print"), (3,0), self.OnPrintButton)
 
 		group = []
 		self.rotateToolButton = openglGui.glRadioButton(self, 8, _("Rotate"), (0,-1), group, self.OnToolSelect)
@@ -906,12 +907,12 @@ class SceneView(openglGui.glGuiPanel):
 
 	def OnPaint(self,e):
 		connectionGroup = self._printerConnectionManager.getAvailableGroup()
-		#if len(removableStorage.getPossibleSDcardDrives()) > 0 and (connectionGroup is None or connectionGroup.getPriority() < 0):
-		#	self.printButton._imageID = 2
-		#	self.printButton._tooltip = _("Toolpath to SD")
-		if connectionGroup is not None:
-			self.printButton._imageID = 6
-			self.printButton._tooltip = _("Print with %s") % (connectionGroup.getName())
+		if len(removableStorage.getPossibleSDcardDrives()) > 0 and (connectionGroup is None or connectionGroup.getPriority() < 0):
+			self.printButton._imageID = 2
+			self.printButton._tooltip = _("Toolpath to SD")
+		#elif connectionGroup is not None:
+		#	self.printButton._imageID = 3
+		#	self.printButton._tooltip = _("Print with %s") % (connectionGroup.getName())
 		else:
 			self.printButton._imageID = 3
 			self.printButton._tooltip = _("Save toolpath")
