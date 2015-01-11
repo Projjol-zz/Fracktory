@@ -143,8 +143,6 @@ class mainWindow(wx.Frame):
 		if version.isDevVersion():
 			i = toolsMenu.Append(-1, _("PID Debugger..."))
 			self.Bind(wx.EVT_MENU, self.OnPIDDebugger, i)
-			i = toolsMenu.Append(-1, _("Auto Firmware Update..."))
-			self.Bind(wx.EVT_MENU, self.OnAutoFirmwareUpdate, i)
 
 		i = toolsMenu.Append(-1, _("Copy profile to clipboard"))
 		self.Bind(wx.EVT_MENU, self.onCopyProfileClipboard,i)
@@ -475,8 +473,8 @@ class mainWindow(wx.Frame):
 		self.defaultFirmwareInstallMenuItem = self.machineMenu.Append(-1, _("Install default firmware..."))
 		self.Bind(wx.EVT_MENU, self.OnDefaultMarlinFirmware, self.defaultFirmwareInstallMenuItem)
 
-		i = self.machineMenu.Append(-1, _("Install custom firmware..."))
-		self.Bind(wx.EVT_MENU, self.OnCustomFirmware, i)
+		#i = self.machineMenu.Append(-1, _("Install custom firmware..."))
+		#self.Bind(wx.EVT_MENU, self.OnCustomFirmware, i)
 
 	def OnLoadProfile(self, e):
 		dlg=wx.FileDialog(self, _("Select profile file to load"), os.path.split(profile.getPreference('lastFile'))[0], style=wx.FD_OPEN|wx.FD_FILE_MUST_EXIST)
